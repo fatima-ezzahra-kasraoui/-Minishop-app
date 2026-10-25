@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MiniShop</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>MiniShop</h1>
+      <nav aria-label="Navigation principale">
+        <button type="button" data-view="products" data-testid="nav-products">Produits</button>
+        <button type="button" data-view="basket" data-testid="nav-basket">Panier</button>
+        <button type="button" data-view="register" data-testid="nav-register">Inscription</button>
+        <button type="button" data-view="login" data-testid="nav-login">Connexion</button>
+        <button type="button" id="logout" data-testid="nav-logout" hidden>Déconnexion</button>
+      </nav>
+      <span class="status" data-testid="user-status" aria-live="polite">Non connecté</span>
+    </header>
+
+    <main>
+      <!-- Inscription -->
+      <section id="view-register" data-testid="view-register" hidden>
+        <h2>Inscription</h2>
+        <form id="register-form" data-testid="register-form" novalidate>
+          <label for="register-email">Adresse e-mail</label>
+          <input id="register-email" data-testid="register-email" type="text" autocomplete="off" />
+          <p class="error" data-testid="register-email-error" role="alert" hidden></p>
+
+          <label for="register-password">Mot de passe</label>
+          <input id="register-password" data-testid="register-password" type="password" autocomplete="new-password" />
+          <p class="hint" data-testid="register-password-counter">0/40</p>
+          <p class="error" data-testid="register-password-error" role="alert" hidden></p>
+
+          <button type="submit" data-testid="register-submit">Créer le compte</button>
+          <p class="error" data-testid="register-error" role="alert" hidden></p>
+          <p class="success" data-testid="register-success" role="status" hidden></p>
+        </form>
+      </section>
+
+      <!-- Connexion -->
+      <section id="view-login" data-testid="view-login" hidden>
+        <h2>Connexion</h2>
+        <form id="login-form" data-testid="login-form" novalidate>
+          <label for="login-email">Adresse e-mail</label>
+          <input id="login-email" data-testid="login-email" type="text" autocomplete="username" />
+
+          <label for="login-password">Mot de passe</label>
+          <input id="login-password" data-testid="login-password" type="password" autocomplete="current-password" />
+
+          <button type="submit" data-testid="login-submit">Se connecter</button>
+          <p class="error" data-testid="login-error" role="alert" hidden></p>
+        </form>
+      </section>
+
+      <!-- Produits -->
+      <section id="view-products" data-testid="view-products">
+        <h2>Produits</h2>
+        <form id="search-form" data-testid="search-form" role="search">
+          <label for="search-input">Rechercher</label>
+          <input id="search-input" data-testid="search-input" type="search" />
+          <button type="submit" data-testid="search-submit">Rechercher</button>
+        </form>
+        <h3 data-testid="search-heading">Tous les produits</h3>
+        <p class="hint" data-testid="search-count"></p>
+        <p class="error" data-testid="products-message" role="alert" hidden></p>
+        <ul class="products" data-testid="product-list"></ul>
+      </section>
+
+      <!-- Panier -->
+      <section id="view-basket" data-testid="view-basket" hidden>
+        <h2>Mon panier</h2>
+        <p class="hint" data-testid="basket-message" hidden></p>
+        <table data-testid="basket-table" hidden>
+          <thead>
+            <tr><th>Produit</th><th>Quantité</th><th>Total</th><th></th></tr>
+          </thead>
+          <tbody data-testid="basket-items"></tbody>
+        </table>
+        <p class="total" data-testid="basket-total" hidden></p>
+      </section>
+    </main>
+
+    <script src="/config.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>

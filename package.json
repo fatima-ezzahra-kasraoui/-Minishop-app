@@ -1,0 +1,19 @@
+{
+  "name": "minishop-app",
+  "version": "1.0.0",
+  "description": "MiniShop : petite application web servant de banc d'essai QA (BUGS=off conforme, BUGS=on avec défauts volontaires)",
+  "private": true,
+  "license": "MIT",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning src/server.js",
+    "start:bugs": "BUGS=on node --disable-warning=ExperimentalWarning src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
