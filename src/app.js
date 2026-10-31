@@ -45,6 +45,11 @@ function createApp() {
 
   app.use(express.static(path.join(__dirname, '..', 'public')));
 
+  // Chemins inconnus hors /api (favicon.ico, robots.txt…) : sans ce gestionnaire, la page 404 par
+  // défaut d'Express écrase nos en-têtes de sécurité par « Content-Security-Policy: default-src 'none' »
+  // (alerte ZAP « CSP: Failure to Define Directive with No Fallback »).
+  app.use(notFound);
+
   app.use(errorHandler);
   return app;
 }
