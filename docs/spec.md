@@ -111,7 +111,7 @@ Toutes les erreurs ont la forme `{ "code": "...", "message": "..." }`. Une erreu
 
 - **SEC-01** Les mots de passe sont stockés hachés (scrypt avec sel), jamais en clair.
 - **SEC-02** Les jetons JWT sont signés en HS256 ; les jetons `alg: none` sont rejetés.
-- **SEC-03** Chaque réponse HTTP porte les en-têtes `Content-Security-Policy`, `X-Content-Type-Options: nosniff`, `X-Frame-Options` et `Referrer-Policy` ; `X-Powered-By` est absent.
+- **SEC-03** Chaque réponse HTTP porte les en-têtes `Content-Security-Policy` (avec `form-action`), `X-Content-Type-Options: nosniff`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, `Cross-Origin-Opener-Policy`, `Cross-Origin-Embedder-Policy` et `Cross-Origin-Resource-Policy` ; `X-Powered-By` est absent.
 - **SEC-04** Aucune donnée saisie par l'utilisateur n'est insérée comme HTML.
 - **SEC-05** Les erreurs internes ne divulguent ni trace de pile ni chemin de fichier.
 
